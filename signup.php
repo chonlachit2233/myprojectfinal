@@ -2,48 +2,43 @@
 include("include/config.php");
 error_reporting(0);
 
-if(isset($_POST['signup'])){
+if (isset($_POST['signup'])) {
     $fullname = $_POST['fullname'];
     $username = $_POST['username'];
     $email = $_POST['useremail'];
     $mobile = $_POST['usermobile'];
     $password = $_POST['loginpassword'];
-    //echo "<br>";
-    $hasedpassword = hash('sha256',$password);
-   // print_r($_POST);
+    $hashedpassword = hash('sha256', $password);
 
-   $ret = "SELECT * FROM userdata WHERE (username=:uname || useremail=:uemail)";
-   $queryt = $dbh -> prepare($ret);
-   $queryt->bindParam(':uname',$username,PDO::PARAM_STR);
-   $queryt->bindParam(':uemail',$email,PDO::PARAM_STR);
-   $queryt-> execute();
-   $results = $queryt -> fetchAll(PDO::FETCH_OBJ);
+    $ret = "SELECT * FROM userdata WHERE (username=:uname || useremail=:uemail)";
+    $queryt = $dbh->prepare($ret);
+    $queryt->bindParam(':uname', $username, PDO::PARAM_STR);
+    $queryt->bindParam(':uemail', $email, PDO::PARAM_STR);
+    $queryt->execute();
+    $results = $queryt->fetchAll(PDO::FETCH_OBJ);
 
-   if($queryt-> rowCount() == 0){
-    //echo "xx";
-        $sql = "INSERT INTO userdata(fullname,username,useremail,usermobile,loginpassword) VALUES (:fname,:uname,:uemail,:umobile,:upass)";
-        $query = $dbh -> prepare($sql);
-        $query->bindParam(':fname',$fullname,PDO::PARAM_STR);
-        $query->bindParam(':uname',$username,PDO::PARAM_STR);
-        $query->bindParam(':uemail',$email,PDO::PARAM_STR);
-        $query->bindParam(':umobile',$mobile,PDO::PARAM_STR);
-        $query->bindParam(':upass',$hasedpassword,PDO::PARAM_STR);
-        $query-> execute();
-        $lastInsertId = $dbh->$lastInsertId();
-        if($lastInsertId){
-                echo "You have signup successfully";
-        }else{
-                echo "Have something wrong. Please try again";
+    if ($queryt->rowCount() == 0) {
+        $sql = "INSERT INTO userdata(fullname, username, useremail, usermobile, loginpassword) VALUES (:fname, :uname, :uemail, :umobile, :upass)";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':fname', $fullname, PDO::PARAM_STR);
+        $query->bindParam(':uname', $username, PDO::PARAM_STR);
+        $query->bindParam(':uemail', $email, PDO::PARAM_STR);
+        $query->bindParam(':umobile', $mobile, PDO::PARAM_STR);
+        $query->bindParam(':upass', $hashedpassword, PDO::PARAM_STR);
+        $query->execute();
+
+        $lastInsertId = $dbh->lastInsertId(); // เรียกใช้งานให้ถูกต้อง
+        if ($lastInsertId) {
+            echo "You have signed up successfully";
+        } else {
+            echo "Something went wrong. Please try again";
         }
-   }else{
-        echo "Username or Email already exist, Please try again";
-   }
+    } else {
+        echo "Username or Email already exists, Please try again";
+    }
 }
-
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
