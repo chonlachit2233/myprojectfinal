@@ -1,0 +1,98 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Container styling */
+.container {
+    background: linear-gradient(145deg, #3b3b3b, #1f1f1f);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Headings */
+h2 {
+    color: #00d4ff;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Form labels */
+label {
+    font-weight: bold;
+    color: #ccc;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    background: #2b2b2b;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.8rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #00d4ff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Buttons */
+.btn-success {
+    background: linear-gradient(145deg, #00d4ff, #007bff);
+    border: none;
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success:hover {
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Checkbox */
+.form-check-label {
+    color: #aaa;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
