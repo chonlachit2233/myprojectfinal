@@ -8,7 +8,8 @@ if (isset($_POST['signup'])) {
     $email = $_POST['useremail'];
     $mobile = $_POST['usermobile'];
     $password = $_POST['loginpassword'];
-    $hashedpassword = hash('sha256', $password);
+    //echo"br";
+    $hasedpassword = hash('sha256', $password);
 
     $ret = "SELECT * FROM userdata WHERE (username=:uname || useremail=:uemail)";
     $queryt = $dbh->prepare($ret);
@@ -24,7 +25,7 @@ if (isset($_POST['signup'])) {
         $query->bindParam(':uname', $username, PDO::PARAM_STR);
         $query->bindParam(':uemail', $email, PDO::PARAM_STR);
         $query->bindParam(':umobile', $mobile, PDO::PARAM_STR);
-        $query->bindParam(':upass', $hashedpassword, PDO::PARAM_STR);
+        $query->bindParam(':upass', $hasedpassword, PDO::PARAM_STR);
         $query->execute();
 
         $lastInsertId = $dbh->lastInsertId(); // เรียกใช้งานให้ถูกต้อง
