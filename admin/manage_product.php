@@ -166,7 +166,8 @@ error_reporting(0);
                                     <td><?php echo $row->cat_id;?></td>
                                     <td><?php echo $row->pro_price;?></td>
                                     <td><?php echo $row->pro_cost;?></td>
-                                    <td><img src="<?php $row->pro_img; ?>" alt=""width="50px" height="50px" ></td>
+                                    <td><img src="<?php echo $row->pro_img; ?>" alt="" width="50px" height="50px"></td>
+
 
                                  <td>
                         <a href="edit-product.php?pro_id=<?php echo $row-> pro_id; ?>" class="btn btn-warning">แก้ไข</a>

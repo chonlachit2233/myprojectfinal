@@ -2,7 +2,7 @@
 include("../include/config.php");
 error_reporting(0);
 
-if ($_SESSION['uer_type']==1) {
+if ($_SESSION['user_type']==1) {
     header('location:logout.php');
     
 }else{
