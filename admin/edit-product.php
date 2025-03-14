@@ -165,9 +165,16 @@ error_reporting(0);
                 <input type="number"  class="form-control" id="pro_cost" placeholder="กรุณากรอกราคาขาย" name="pro_cost" required value="<?php echo $row->pro_cost; ?>">
                 </div>
                  <!--upload ภาพ -->
-                 <div class="form-group">
-                <label for="pro_img">รูปภาพ:</label>
-                <input type="text" class="form-control" id="pro_img" placeholder="นำลิ้งรูปภาพสินค้ามาใส่" name="pro_img"value="pro_img" <?php echo $pro_img;?>>
+                 <div class="form-group ">
+                  <br>
+                 <label for="pro_img">อัพโหลดที่อยู่ลิ้งรูปภาพ:</label>
+  <input type="text" id="pro_img" name="pro_img" accept="image/*">
+  <br>
+  <br>
+
+  <img src="<?php echo $row->pro_img; ?>" alt="รูปภาพสินค้า" style="width: 200px; height: auto;">
+  <br>
+  <input type="hidden" name="existing_img" value="<?php echo $row->pro_img; ?>">
                  
                 </p>
              
