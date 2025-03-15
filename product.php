@@ -10,13 +10,13 @@
                     <div class="row">
 
                     <?php foreach($rsproduct as $row){ ?>
-                        <div class="col-12 col-sm-3">
+                        <div class="col-12 col-sm-3 mb-2">
                             <div class="card" style="width: 100%;">
                                 <img src="<?=$row['pro_img'];?>" class="card-img-top" alt="...">
                                 <div class="card-body">
                                   <h5 class="card-title"><?=$row['pro_name'];?></h5>
                                   <p class="card-text">ราคา <?=$row['pro_price'];?> บาท</p>
-                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                  <a href="detail.php?id=<?=$row['pro_id'];?>" class="btn btn-primary">ดูรายละเอียดสินค้า</a>
                                 </div>
                               </div>
                         </div>

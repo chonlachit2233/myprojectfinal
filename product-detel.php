@@ -1,3 +1,26 @@
+<?php 
+if(isset($_GET['pro_id'])){
+
+
+
+    $stmtProduct = $dbh->prepare("SELECT * FROM product WHERE pro_id=:id ");
+    //bindpram
+    $stmtProduct->bindpram(':id', $_GET['pro_id'], PDO::PARAM_INT);
+    $stmtProduct->execute();
+    $rowProduct = $stmtProduct->fetch(PDO::FETCH_ASSOC);
+
+    //ใว้เช็คว่า อะไรออกมาบ้าง
+    // echo '<pre>';
+    // print_r($rowProduct);
+    // exit;
+}
+
+?>
+
+
+
+
+
 <!-- start product deteil -->
 <div class="container mt-1">
             <div class="row">

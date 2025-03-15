@@ -1,7 +1,7 @@
 <!-- start menu -->
 <div class="container">
         <div class="row">
-            <div class="clol-sm-12">
+            <div class="col-sm-12">
                 <nav class="navbar navbar-expand-lg "style="background-color: orange">
                     <div class="container-fluid">
                       <a class="navbar-brand text-white" href="#">ร้านชูชิไง</a>
