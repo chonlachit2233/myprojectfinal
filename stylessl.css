@@ -1,0 +1,113 @@
+body {
+    background: linear-gradient(135deg, #d84b16, #8b3d1f, #2c1b11);
+    font-family: 'Roboto', sans-serif;
+    color: #f5f5f5;
+    animation: gradient-shift 8s infinite alternate;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius: 15px;
+    background: linear-gradient(145deg, #ff6f00, #b84c21);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4), inset 0 1px 3px rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 20px;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5), inset 0 1px 5px rgba(255, 255, 255, 0.2);
+}
+
+.card h2 {
+    color: #ff7f32;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    animation: text-glow 2s infinite alternate;
+}
+
+@keyframes text-glow {
+    0% {
+        text-shadow: 0 0 10px #ff7f32, 0 0 20px #cc5c0d, 0 0 30px #993300;
+    }
+    100% {
+        text-shadow: 0 0 5px #ff6f00, 0 0 15px #cc4400, 0 0 25px #993300;
+    }
+}
+
+.btn-primary {
+    background: linear-gradient(145deg, #ff5800, #9e3d2f);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    animation: pulse-glow 2s infinite;
+}
+
+.btn-primary:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(255, 119, 0, 0.4);
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 119, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 119, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 119, 0, 0.3);
+    }
+}
+
+a.text-primary {
+    color: #ff7f32;
+    transition: color 0.3s ease;
+}
+
+a.text-primary:hover {
+    color: #cc4400;
+    text-decoration: underline;
+}
+
+.footer {
+    color: #c0c0c0;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    background: linear-gradient(145deg, #2b1a12, #8b4c28);
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.7), inset 0 1px 3px rgba(255, 255, 255, 0.1);
+    animation: footer-fade 5s infinite alternate;
+}
+
+@keyframes footer-fade {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
