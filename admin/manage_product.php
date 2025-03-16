@@ -63,6 +63,7 @@ error_reporting(0);
       integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
       crossorigin="anonymous"
     />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -132,7 +133,7 @@ error_reporting(0);
                   
                   <!-- /.card-header -->
                   <div class="card-body">
-                  <a href="add-product.php" class="btn btn-info">เพิ่ม</a>
+                  <a href="add-product.php" class="btn btn-info"><i class='bx bxs-user-plus bx-tada' style='color:#171717' ></i></a>
                 
                 
                     <table class="table table-bordered">
@@ -144,7 +145,7 @@ error_reporting(0);
                           <th>ราคาต้นทุน </th>
                           <th>ราคาขาย</th>
                           <th>รูปภาพ</th>
-                          <th style="width: 40px">แก้ไข/ลบ</th>
+                          <th style="">แก้ไข/ลบ</th>
                         </tr>
                       </thead>
                       
@@ -161,7 +162,7 @@ error_reporting(0);
                                 foreach($results as $row) {
                         ?>
                                     <tr class="align-middle">
-                                    <td><?php echo $row->pro_id;?></td>
+                                    <td><?php echo $cnc; ?></td>
                                     <td><?php echo $row->pro_name;?></td>
                                     <td><?php echo $row->cat_id;?></td>
                                     <td><?php echo $row->pro_price;?></td>
@@ -170,12 +171,12 @@ error_reporting(0);
 
 
                                  <td>
-                        <a href="edit-product.php?pro_id=<?php echo $row-> pro_id; ?>" class="btn btn-warning">แก้ไข</a>
-                        <a href="delete-product.php?pro_id=<?php echo $row->pro_id;?>&act=delete" class="btn btn-danger" onclick="return confirm('ยืนยันการลบข้อมูลหรอ!!');">ลบ</a>
+                        <a href="edit-product.php?pro_id=<?php echo $row-> pro_id; ?>" class="btn btn-warning"><i class='bx bxs-edit bx-tada' style='color:#171717' ></i></a>
+                        <a href="delete-product.php?pro_id=<?php echo $row->pro_id;?>&act=delete" class="btn btn-danger" onclick="return confirm('ยืนยันการลบข้อมูลหรอ!!');"><i class='bx bx-trash bx-tada' ></i></a>
                         </td>
                         </tr>
                 
-<?php                               $cnt=$cnt+1;
+<?php                               $cnc++;
                                }  
                             }    
                         ?>

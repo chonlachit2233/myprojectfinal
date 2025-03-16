@@ -63,6 +63,7 @@ error_reporting(0);
       integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
       crossorigin="anonymous"
     />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -132,46 +133,47 @@ error_reporting(0);
                   
                   <!-- /.card-header -->
                   <div class="card-body">
-                  <a href="add-user.php" class="btn btn-info">เพิ่ม</a>
+                  <a href="add-user.php" class="btn btn-info"><i class='bx bxs-user-plus bx-tada' style='color:#171717' ></i></a>
                     <table class="table table-bordered">
                       <thead>
-                        <tr>
-                          <th style="width: 10px">#</th>
-                          <th>ชื่อ</th>
-                          <th>ชื่อผู้ใช้งาน</th>
-                          <th> Email</th>
-                          <th>Mobile</th>
-                          <th style="width: 40px">แก้ไข/ลบ</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php
-                        //เชื่อมต่อกับ database
-                            $ret="select * from userdata";
-                            $query = $dbh ->prepare($ret);
-                            $query -> execute();
-                            $results = $query -> fetchAll(PDO::FETCH_OBJ);
-                            $cnc = 1;
- 
-                            if($query->rowCount() >0) {
-                                foreach($results as $row) {
-                        ?>
-                                    <tr class="align-middle">
-                                    <td><?php echo $row-> id;?></td>
-                                    <td><?php echo $row->fullname;?></td>
-                                    <td><?php echo $row->username;?></td>
-                                    <td><?php echo $row->useremail;?></td>
-                                    <td><?php echo $row->usermobile;?></td>
-                                    <td>
-                                    <a href="edit-users.php?id=<?php echo $row->id; ?>" class="btn btn-warning">แก้ไข</a>
-                                    <a href="delete-user.php?id=<?php echo $row->id;?>&act=delete" class="btn btn-danger" onclick="return confirm('ยืนยันการลบข้อมูลหรอ!!');">ลบ</a>
-                                  </td>
-                                    </tr>
-<?php                               $cnt=$cnt+1;
-                               }  
-                            }    
-                        ?>
-            
+                      <tr>
+  <th style="width: 10px">ลำดับ</th>
+  <th>ชื่อ</th>
+  <th>ชื่อผู้ใช้งาน</th>
+  <th> Email</th>
+  <th>Mobile</th>
+  <th style="">แก้ไข/ลบ</th>
+</tr>
+</thead>
+<tbody>
+  <?php
+  //เชื่อมต่อกับ database
+  $ret = "SELECT * FROM userdata";
+  $query = $dbh->prepare($ret);
+  $query->execute();
+  $results = $query->fetchAll(PDO::FETCH_OBJ);
+  $cnc = 1;
+
+  if ($query->rowCount() > 0) {
+    foreach ($results as $row) {
+  ?>
+      <tr class="align-middle">
+        <td><?php echo $cnc; ?></td>
+        <td><?php echo $row->fullname; ?></td>
+        <td><?php echo $row->username; ?></td>
+        <td><?php echo $row->useremail; ?></td>
+        <td><?php echo $row->usermobile; ?></td>
+        <td>
+          <a href="edit-users.php?id=<?php echo $row->id; ?>" class="btn btn-warning"><i class='bx bxs-edit bx-tada' style='color:#171717' ></i></a>
+          <a href="delete-user.php?id=<?php echo $row->id; ?>&act=delete" class="btn btn-danger" onclick="return confirm('ยืนยันการลบข้อมูลหรอ!!');"><i class='bx bx-trash bx-tada' ></i></a>
+        </td>
+      </tr>
+  <?php
+      $cnc++;
+    }
+  }
+  ?>
+
                       </tbody>
                     </table>
                   </div>

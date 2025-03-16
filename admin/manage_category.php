@@ -63,6 +63,8 @@ error_reporting(0);
       integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
       crossorigin="anonymous"
     />
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -130,20 +132,20 @@ error_reporting(0);
                   <div class="card-header"><h3 class="card-title">Manage Category</h3></div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                  <a href="add-category.php" class="btn btn-info">เพิ่ม</a>
+                  <a href="add-category.php" class="btn btn-info"><i class='bx bxs-user-plus bx-tada' style='color:#171717' ></i></a>
                   
                   <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th style="width: 10px">#</th>
+                          <th style="width: 10px">ลำดับ</th>
                           <th>ชื่อประเภทสินค้า</th>
-                          <th style="width: 40px">แก้ไข/ลบ</th>
+                          <th style="">แก้ไข/ลบ</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
                         //เชื่อมต่อกับ database
-                            $ret="select * from category";
+                            $ret="SELECT * FROM category";
                             $query = $dbh ->prepare($ret);
                             $query -> execute();
                             $results = $query -> fetchAll(PDO::FETCH_OBJ);
@@ -153,14 +155,14 @@ error_reporting(0);
                                 foreach($results as $row) {
                         ?>
                                     <tr class="align-middle">
-                                    <td><?php echo $row->cat_id;?></td>
+                                    <td><?php echo $cnc; ?></td>
                                     <td><?php echo $row->cat_name;?></td>
                                     <td>
-                                    <a href="edit-category.php?cat_id=<?php echo $row->cat_id; ?>" class="btn btn-warning">แก้ไข</a>
-                                    <a href="delete-category.php?cat_id=<?php echo $row->cat_id;?>&act=delete" class="btn btn-danger" onclick="return confirm('ยืนยันการลบข้อมูลหรอ!!');">ลบ</a>
+                                    <a href="edit-category.php?cat_id=<?php echo $row->cat_id; ?>" class="btn btn-warning"> <i class='bx bxs-edit bx-tada' style='color:#171717' ></i></a>
+                                    <a href="delete-category.php?cat_id=<?php echo $row->cat_id;?>&act=delete" class="btn btn-danger" onclick="return confirm('ยืนยันการลบข้อมูลหรอ!!');"><i class='bx bx-trash bx-tada' ></i></a>
                                   </td>
                                     </tr>
-<?php                               $cnt=$cnt+1;
+<?php                                $cnc++;
                                }  
                             }    
                         ?>
